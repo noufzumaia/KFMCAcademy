@@ -1,0 +1,149 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Training_School.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    
+    <%--bootstrap css--%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--datatables css--%>
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+     <%--fontawesome css--%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+
+     <%--our custom css--%>
+    <link href="css/customstylesheet.css" rel="stylesheet" />
+
+    <%--jquery--%>
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <%--popper js--%>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <%--bootstrap js--%>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+     <%--Datatables js--%>
+      <script src="datatables/js/jquery.dataTables.min.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">
+                    <img src="imgs/Logo.PNG" width="120" height="100" />
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="home.aspx"><asp:Localize ID="anchor" runat="server" 
+                              meta:resourcekey="linkHome" Text="Home"></asp:Localize></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="aboutUs.aspx"><asp:Localize ID="anchor2" runat="server" 
+                              meta:resourcekey="linkAboutUs" Text="About Us"></asp:Localize></a>
+                        </li>
+                        <li class="nav-item active">
+                         <asp:LinkButton class="nav-link" ID="lbtnEnglish" runat="server" OnClick="lbtn_Click" meta:resourceKey="lbtnEnglish"> English </asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                         <asp:LinkButton class="nav-link" ID="lbtnArabic" runat="server" OnClick="lbtn_Click" meta:resourceKey="lbtnArabic"> Arabic </asp:LinkButton>
+                        </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnManage" runat="server" AssociatedControlID="lbtnManage" meta:resourceKey="lbtnManage" Visible="False" OnClick="lbtnManage_Click">Manage</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnMySubscriptions" runat="server" Visible="False" meta:resourceKey="lbtnMySub" OnClick="lbtnMySubscriptions_Click">My Subscriptions</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnCreateCourses" runat="server" Visible="False" meta:resourceKey="lbtnCreateCourse" OnClick="lbtnCreateCourses_Click">Create Courses</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnViewCourses" runat="server" meta:resourceKey="lbtnViewCourse" OnClick="lbtnViewCourses_Click">View Courses</asp:LinkButton>
+                        </li>
+                        
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnUserLogin" runat="server" meta:resourceKey="lbtnUserLogin" OnClick="lbtnUserLogin_Click">User Login</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnSignup" runat="server" meta:resourceKey="lbtnSignup" OnClick="lbtnSignup_Click">Sign Up</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnLogout" runat="server" Visible="False" meta:resourceKey="lbtnLogout" OnClick="lbtnLogout_Click">Logout</asp:LinkButton>
+                        </li>
+                           <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnCart" runat="server" Visible="False" meta:resourceKey="lbtnCart" OnClick="lbtnCart_Click" >Cart</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="lbtnMsg" runat="server" Visible="False" meta:resourceKey="lbtnMsg" OnClick="lbtnMsg_Click" ForeColor="#0099FF">Hello user</asp:LinkButton>
+
+                        </li>
+                    </ul>
+                </div>
+
+
+            </nav>
+        </div>
+
+
+        <!-- Main Content Placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Main Content Placeholder -->
+
+         <!-- Footer -->
+        <footer>
+            <div id="footer1" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p>
+                            <asp:LinkButton class="footerlinks" ID="lbtnAdminLogin" meta:resourceKey="lbtnAdminLogin" runat="server" OnClick="lbtnAdminLogin_Click">Admin Login</asp:LinkButton>
+                             &nbsp; 
+                            <asp:LinkButton class="footerlinks" ID="lbtnManageTrainees" runat="server" meta:resourceKey="lbtnManageTrainees" Visible="False" OnClick="lbtnManageTrainees_Click">Manage Trainees</asp:LinkButton>
+                            &nbsp; 
+                            <asp:LinkButton class="footerlinks" ID="lbtnManageInstructors" runat="server" meta:resourceKey="lbtnManageInstructors" Visible="False" OnClick="lbtnManageInstructors_Click">Manage Instructors</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="lbtnManageCourses" runat="server" meta:resourceKey="lbtnManageCourses" Visible="False" OnClick="lbtnManageCourses_Click">Manage Courses</asp:LinkButton>
+                            &nbsp; 
+                            <asp:LinkButton class="footerlinks" ID="lbtnViewCourse" runat="server" meta:resourceKey="lbtnViewCourses" OnClick="lbtnViewCourse_Click">View Courses</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="lbtnAboutUs" runat="server" meta:resourceKey="lbtnAboutUs" OnClick="lbtnAboutUs_Click">About Us</asp:LinkButton>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer2" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p style="color:whitesmoke">&copy All Rights Reserved. <a class="footerlinks" href="#" target="_blank">Group A</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- ./Footer -->
+
+    </form>
+</body>
+</html>
